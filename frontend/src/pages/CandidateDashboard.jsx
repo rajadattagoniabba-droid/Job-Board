@@ -51,9 +51,11 @@ const CandidateDashboard = () => {
               <p style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>Applied on {new Date(app.appliedAt).toLocaleDateString()}</p>
             </div>
             
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", background: "rgba(0,0,0,0.3)", padding: "0.5rem 1rem", borderRadius: "2rem" }}>
-              {getStatusIcon(app.status)}
-              <span style={{ textTransform: "capitalize", fontWeight: "500" }}>{app.status}</span>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <span className={`status-badge status-${app.status || 'pending'}`}>
+                {getStatusIcon(app.status)}
+                {app.status || 'pending'}
+              </span>
             </div>
           </div>
         )) : (
